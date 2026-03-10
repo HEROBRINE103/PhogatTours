@@ -1,0 +1,705 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact | Phogat Tours & Travels</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, sans-serif;
+}
+
+body{
+background:#f5f7fa;
+color:#111;
+}
+
+
+/* NAVBAR */
+
+.navbar{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 8%;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(12px);
+position:sticky;
+top:0;
+z-index:1000;
+
+}
+
+/* LOGO */
+
+.logo{
+
+font-size:24px;
+font-weight:700;
+color:#C0C0C0;
+text-shadow:0 0 10px #7df9ff;
+transition:0.4s;
+
+}
+
+.logo:hover{
+
+transform:rotate(-2deg) scale(1.05);
+text-shadow:0 0 20px #7df9ff,0 0 40px #7df9ff;
+
+}
+
+
+/* NAV LINKS */
+
+#navMenu{
+
+display:flex;
+gap:25px;
+
+}
+
+#navMenu a{
+
+text-decoration:none;
+color:white;
+font-weight:500;
+position:relative;
+transition:0.3s;
+
+}
+
+/* underline animation */
+
+#navMenu a::after{
+
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+width:0;
+height:2px;
+background:silver;
+transition:0.3s;
+
+}
+
+#navMenu a:hover::after{
+
+width:100%;
+
+}
+
+/* tilt effect */
+
+#navMenu a:hover{
+
+transform:rotate(-3deg) scale(1.05);
+color:#7df9ff;
+
+}
+
+
+/* HAMBURGER */
+
+.hamburger{
+
+display:none;
+flex-direction:column;
+cursor:pointer;
+gap:5px;
+
+}
+
+.hamburger span{
+
+width:25px;
+height:3px;
+background:white;
+transition:0.4s;
+
+}
+
+/* hamburger animation */
+
+.hamburger.active span:nth-child(1){
+
+transform:rotate(45deg) translate(5px,5px);
+
+}
+
+.hamburger.active span:nth-child(2){
+
+opacity:0;
+
+}
+
+.hamburger.active span:nth-child(3){
+
+transform:rotate(-45deg) translate(6px,-6px);
+
+}
+
+
+/* MOBILE MENU */
+
+@media(max-width:768px){
+
+#navMenu{
+
+position:absolute;
+top:70px;
+display: none;
+flex-direction:column;
+background:#111;
+width:220px;
+padding:20px;
+transition:0.4s;
+
+}
+
+#navMenu.active{
+
+display: flex;
+right: 0%;
+
+}
+
+.hamburger{
+
+display:flex;
+
+}
+
+}
+
+/* HERO */
+
+.contact-hero{
+height:45vh;
+background:url("hhh.jfif") center/cover no-repeat;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+position:relative;
+}
+
+.contact-hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.55);
+}
+
+.contact-hero h1,
+.contact-hero p{
+position:relative;
+z-index:2;
+}
+
+.contact-hero h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.contact-hero p{
+font-size:18px;
+}
+
+
+/* CONTACT SECTION */
+
+.contact-section{
+padding:90px 8%;
+}
+
+.section-title{
+text-align:center;
+font-size:32px;
+margin-bottom:10px;
+}
+
+.contact-subtitle{
+text-align:center;
+color:#555;
+margin-bottom:50px;
+}
+
+
+/* GRID */
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+
+/* CONTACT CARDS */
+
+.contact-info{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.contact-card{
+background:white;
+padding:30px;
+border-radius:14px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+text-align:center;
+transition:0.4s;
+}
+
+.contact-card i{
+font-size:28px;
+margin-bottom:10px;
+color:#0077ff;
+}
+
+.contact-card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
+
+/* FORM */
+
+.contact-form form{
+background:white;
+padding:30px;
+border-radius:14px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.form-row{
+display:flex;
+gap:10px;
+}
+
+input, textarea{
+padding:12px;
+border-radius:8px;
+border:1px solid #ddd;
+outline:none;
+}
+
+input:focus,
+textarea:focus{
+border-color:#0077ff;
+box-shadow:0 0 4px #0077ff44;
+}
+
+.send-btn{
+background:#0077ff;
+color:white;
+border:none;
+padding:12px;
+border-radius:25px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.send-btn:hover{
+background:#0056c9;
+transform:scale(1.04);
+}
+
+
+/* MAP */
+
+.contact-map{
+margin-top:50px;
+}
+
+.contact-map iframe{
+width:100%;
+height:350px;
+border:none;
+border-radius:14px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+
+/* WHATSAPP */
+
+.whatsapp-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:white;
+font-size:26px;
+width:60px;
+height:60px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(37,211,102,0.7);}
+70%{box-shadow:0 0 0 15px rgba(37,211,102,0);}
+100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
+}
+
+
+/* FOOTER */
+
+.footer{
+background:#111;
+color:white;
+text-align:center;
+padding:40px;
+margin-top:80px;
+}
+
+
+/* REVEAL */
+
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+#navMenu{
+position:absolute;
+top:70px;
+right:-100%;
+flex-direction:column;
+background:#111;
+width:220px;
+padding:20px;
+transition:0.4s;
+}
+
+#navMenu.active{
+right:0;
+}
+
+.hamburger{
+display:flex;
+}
+
+.contact-grid{
+grid-template-columns:1fr;
+}
+
+.form-row{
+flex-direction:column;
+}
+
+.contact-hero h1{
+font-size:36px;
+}
+
+}
+
+footer{
+background:#000;
+padding:40px 8%;
+margin-top:40px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+color: white;
+}
+
+footer a{
+display:block;
+color:white;
+margin-top:5px;
+text-decoration:none;
+}
+
+.copyright{
+text-align:center;
+margin-top:30px;
+}
+
+/* SOCIAL ICONS */
+
+.social-icons{
+margin-top:15px;
+display:flex;
+gap:15px;
+}
+
+/* ICON STYLE */
+
+.social-icons a{
+font-size:22px;
+color:#777;
+width:40px;
+height:40px;
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+background:#f2f2f2;
+
+transition:0.4s;
+}
+
+/* WHATSAPP */
+
+.social-icons a:hover .fa-whatsapp{
+color:#25D366;
+text-shadow:
+0 0 10px #25D366,
+0 0 20px #25D366,
+0 0 30px #25D366;
+}
+
+/* INSTAGRAM */
+
+.social-icons a:hover .fa-instagram{
+color:#E1306C;
+text-shadow:
+0 0 10px #E1306C,
+0 0 20px #E1306C,
+0 0 30px #E1306C;
+}
+
+/* FACEBOOK */
+
+.social-icons a:hover .fa-facebook{
+color:#1877F2;
+text-shadow:
+0 0 10px #1877F2,
+0 0 20px #1877F2,
+0 0 30px #1877F2;
+}
+
+/* HOVER EFFECT */
+
+.social-icons a:hover{
+transform:scale(1.2) rotate(5deg);
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+
+<div class="logo">Phogat Tours</div>
+
+<div class="hamburger" id="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<nav id="navMenu">
+<a href="index.html">Home</a>
+<a href="packages.html">Packages</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="why-choose-us.html">Why Choose Us</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+</header>
+
+
+<section class="contact-hero">
+<h1>Contact Us</h1>
+<p>Book your taxi or travel package today</p>
+</section>
+
+
+<section class="contact-section">
+
+<h2 class="section-title">Get In Touch</h2>
+<p class="contact-subtitle">We're here to help you plan your perfect journey.</p>
+
+<div class="contact-grid">
+
+<div class="contact-info reveal">
+
+<div class="contact-card">
+<i class="fa-solid fa-phone"></i>
+<h3>Call Us</h3>
+<p>+91 999999999</p>
+</div>
+
+<div class="contact-card">
+<i class="fa-solid fa-envelope"></i>
+<h3>Email</h3>
+<p>phogattours@email.com</p>
+</div>
+
+<div class="contact-card">
+<i class="fa-solid fa-location-dot"></i>
+<h3>Location</h3>
+<p>Haryana, India</p>
+</div>
+
+</div>
+
+
+<div class="contact-form reveal">
+
+<form>
+
+<div class="form-row">
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Email Address" required>
+</div>
+
+<input type="text" placeholder="Phone Number" required>
+
+<textarea rows="4" placeholder="Your Message"></textarea>
+
+<button type="submit" class="send-btn">
+Send Message <i class="fa-solid fa-paper-plane"></i>
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+<div class="contact-map reveal">
+<iframe src="https://www.google.com/maps?q=Haryana%20India&output=embed"></iframe>
+</div>
+
+</section>
+
+
+<a href="https://wa.me/919999999999" class="whatsapp-btn">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+
+<h3>Phogat Tours</h3>
+
+<p>Reliable taxi services across India.</p>
+
+<div class="social-icons">
+
+<a href="#"><i class="fab fa-whatsapp"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-facebook"></i></a>
+
+</div>
+
+</div>
+
+
+<div>
+
+<h4>Quick Links</h4>
+
+<a href="index.html">Home</a>
+<a href="packages.html">Packages</a>
+<a href="about.html">About</a>
+
+</div>
+
+
+<div>
+
+<h4>Contact</h4>
+
+<p>📞 +91 999999999</p>
+<p>✉ phogattours@email.com</p>
+
+</div>
+
+</div>
+
+<p class="copyright">
+
+© 2026 Phogat Tours & Travels
+
+</p>
+
+</footer>
+
+
+
+<script>
+
+/* MOBILE MENU */
+
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+hamburger.addEventListener("click", () => {
+navMenu.classList.toggle("active");
+});
+
+
+/* SCROLL REVEAL */
+
+const reveals = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+
+reveals.forEach((el) => {
+
+const top = el.getBoundingClientRect().top;
+
+if(top < window.innerHeight - 100){
+el.classList.add("active");
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
+
